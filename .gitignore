@@ -1,0 +1,12 @@
+# Binaries 
+bin/
+obj/
+
+# Visual Studio 
+*.suo
+*.csproj.user
+*.DotSettings.user
+
+TestsResults/
+
+packages/*
