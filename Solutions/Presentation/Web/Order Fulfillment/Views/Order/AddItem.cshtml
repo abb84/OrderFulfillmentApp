@@ -1,0 +1,69 @@
+﻿@model RepZio.Ofa.Classes.BusinessLibrary.Classes.OrderItem
+
+@{
+    ViewBag.Title = "AddItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>List of Items</h2>
+@{Html.RenderPartial("_ListOfItems", ViewBag.OrderItems as IEnumerable<RepZio.Ofa.Classes.BusinessLibrary.Classes.OrderItem>);}
+
+<h2>Add Order Item</h2>
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>Order Item</h4>
+                <hr />
+                @Html.HiddenFor(model => model.OrderNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.HiddenFor(model => model.ItemNumber, new { htmlAttributes = new { @class = "form-control" } })
+                <input type="hidden" name="addOther" id="addOther" value="false" />
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PricePerUnit, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PricePerUnit, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PricePerUnit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" class="btn btn-default" onclick="$('#addOther').attr('Value','true')">
+                            <i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Add More
+                        </button>
+                        <button type="submit" class="btn btn-default">
+                            <i class="glyphicon glyphicon-floppy-disk"></i>&nbsp;Complete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="row">
+    @Html.ActionLink("Back to List", "Index")
+</div>

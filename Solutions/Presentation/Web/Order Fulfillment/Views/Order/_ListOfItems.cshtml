@@ -1,0 +1,49 @@
+﻿@model IEnumerable<RepZio.Ofa.Classes.BusinessLibrary.Classes.OrderItem>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Item Number
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        SubTotal
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RepZio.Ofa.Classes.BusinessLibrary.Classes.OrderItem item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.ItemName
+                        </td>
+                        <td>
+                            @item.ItemNumber
+                        </td>
+                        <td>
+                            @item.PricePerUnit.ToString("C")
+                        </td>
+                        <td>
+                            @item.Quantity
+                        </td>
+                        <td>
+                            @String.Format("{0:C2}", @item.PricePerUnit * @item.Quantity)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

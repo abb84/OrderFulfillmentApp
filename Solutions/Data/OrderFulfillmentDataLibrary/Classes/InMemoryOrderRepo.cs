@@ -68,6 +68,7 @@ namespace RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Classes
                 _orders.Add(order);
             }
         }
+
         #endregion
     }
 }

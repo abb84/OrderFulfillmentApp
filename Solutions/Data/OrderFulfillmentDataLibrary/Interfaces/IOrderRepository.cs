@@ -23,6 +23,7 @@ namespace RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Interfaces
         /// <returns></returns>
         List<Order> GetAll();
 
+
         /// <summary>
         /// Saves the specified order.
         /// </summary>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<RepZio.Ofa.Classes.BusinessLibrary.Classes.Order>
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Orders</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <a href="@Url.Action("Create")" class="btn btn-sm btn-default">
+            <i class="glyphicon glyphicon-plus-sign"></i>&nbsp;Create
+        </a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>
+                        Order Number
+                    </th>
+                    <th>
+                        Buyer Name
+                    </th>
+                    <th>
+                        Count Items
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (RepZio.Ofa.Classes.BusinessLibrary.Classes.Order order in Model)
+                {
+                    <tr>
+                        <td>
+                            <a href="@Url.Action("Details", new { id = order.OrderNumber })" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Details</a>
+                        </td>
+                        <td>
+                            @order.OrderNumber
+                        </td>
+                        <td>
+                            @order.BillingAddress.FullName
+                        </td>
+                        <td>
+                            @order.OrderItems.Sum(i => i.Quantity)
+                        </td>
+                        <td>
+                            @order.ProductTotal
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

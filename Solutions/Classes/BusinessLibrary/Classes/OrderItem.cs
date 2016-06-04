@@ -3,6 +3,7 @@ namespace RepZio.Ofa.Classes.BusinessLibrary.Classes
 {
     /// <summary>
     /// OrderItem Class
+    /// I designed this class for meet test's requirements, so most of details required in a real application were excluded (e.g: Taxes, Shipping Charges, Discounts, etc..)
     /// </summary>
     public class OrderItem
     {
