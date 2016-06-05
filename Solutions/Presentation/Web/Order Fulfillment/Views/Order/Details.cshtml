@@ -47,6 +47,8 @@
 <div class="row">
     @{Html.RenderPartial("_ListOfItems", Model.OrderItems);}
 </div>
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+    <a href="@Url.Action("Index")" class="btn btn-sm btn-default">
+        <i class="glyphicon glyphicon-arrow-left"></i>&nbsp;Back to List
+    </a>
+</div>

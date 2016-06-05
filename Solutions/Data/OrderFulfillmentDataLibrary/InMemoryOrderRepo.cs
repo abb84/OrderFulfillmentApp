@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using RepZio.Ofa.Classes.BusinessLibrary.Classes;
 using RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Interfaces;
 
-namespace RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Classes
+namespace RepZio.Ofa.Data.OrderFulfillmentDataLibrary
 {
     /// <summary>
     /// In Memory implementation of IOrderRepository interface

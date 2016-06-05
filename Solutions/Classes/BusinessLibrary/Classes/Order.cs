@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace RepZio.Ofa.Classes.BusinessLibrary.Classes
 {
+    // NOTE: I designed this class for meet test's requirements, so most of details required in a real application were excluded 
+    //      (e.g: Order States and constrains related, Taxes, Shipping Charges, Discounts, etc..)
     /// <summary>
     /// Order Class
-    /// I designed this class for meet test's requirements, so most of details required in a real application were excluded (e.g: Taxes, Shipping Charges, Discounts, etc..)
     /// </summary>
     public class Order
     {
@@ -82,10 +83,10 @@ namespace RepZio.Ofa.Classes.BusinessLibrary.Classes
         /// <param name="item">The item.</param>
         public void AddNewItem(OrderItem item)
         {
-            if (item.ItemNumber < 1)
-                item.ItemNumber = GetNextSequenceNumber();
-            else
+            if (item.ItemNumber >= 1)
                 UpdateSequenceNumber(item.ItemNumber);
+
+            item.ItemNumber = GetNextSequenceNumber();
 
             OrderItems.Add(item);
             CalculateOrderTotal();

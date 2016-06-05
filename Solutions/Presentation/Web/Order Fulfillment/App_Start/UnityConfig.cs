@@ -1,7 +1,7 @@
 
 using System;
 using Microsoft.Practices.Unity;
-using RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Classes;
+using RepZio.Ofa.Data.OrderFulfillmentDataLibrary;
 using RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Interfaces;
 using RepZio.Ofa.Services.BusinessProcessor;
 using RepZio.Ofa.Services.BusinessProcessor.Interfaces;
@@ -39,10 +39,13 @@ namespace RepZio.Ofa.Presentation.Web.OrderFulfillment.App_Start
             // NOTE: To load from web.config uncomment the line below. Make sure to add a Microsoft.Practices.Unity.Configuration to the using statements.
             // container.LoadConfiguration();
 
-            // TODO: Register your types here
+            // NOTE: You can use OrderRepository instead of InMemoryOrderRepo uncomment and comment proper lines.
             // Register with a singleton lifetime
-            container.RegisterType<IOrderRepository, InMemoryOrderRepo>(new ContainerControlledLifetimeManager());
+             container.RegisterType<IOrderRepository, InMemoryOrderRepo>(new ContainerControlledLifetimeManager());
+
+            //container.RegisterType<IOrderRepository, OrderRepository>();
             container.RegisterType<IOrderService, OrderService>();
+            
         }
     }
 }

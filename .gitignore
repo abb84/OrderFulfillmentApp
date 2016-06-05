@@ -8,5 +8,3 @@ obj/
 *.DotSettings.user
 
 TestsResults/
-
-packages/*

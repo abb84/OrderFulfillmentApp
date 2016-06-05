@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RepZio.Ofa.Classes.BusinessLibrary.Classes;
-using RepZio.Ofa.Data.OrderFulfillmentDataLibrary.Classes;
+using RepZio.Ofa.Data.OrderFulfillmentDataLibrary;
 using RepZio.Ofa.Services.BusinessProcessor;
 using RepZio.Ofa.Services.BusinessProcessor.Interfaces;
 
@@ -147,6 +147,7 @@ namespace UnitTest
             // Asserts
             Assert.AreEqual(expectedProductTotal, order.ProductTotal);
         }
+
         #endregion
     }
 }
